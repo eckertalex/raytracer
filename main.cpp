@@ -60,10 +60,10 @@ hitable *random_scene() {
 
 int main() {
     std::ofstream file;
-    file.open("../basic_raytracer_100.ppm");
+    file.open("../basic_raytracer_100_bg.ppm");
     int nx = 1200;
     int ny = 800;
-    int ns = 10;
+    int ns = 100;
     file << "P3\n" << nx << " " << ny << "\n255\n";
 
     hitable *world = random_scene();
