@@ -1,0 +1,3 @@
+/home/lex/Documents/cs/raytracer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/lex/Documents/cs/raytracer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lex/Documents/cs/raytracer/cmake-build-debug/CMakeFiles/raytracer.dir
