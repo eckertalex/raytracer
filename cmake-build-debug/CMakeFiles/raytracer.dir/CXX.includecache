@@ -39,6 +39,12 @@ ray.h
 /home/lex/Documents/cs/raytracer/ray.h
 hitable.h
 /home/lex/Documents/cs/raytracer/hitable.h
+texture.h
+/home/lex/Documents/cs/raytracer/texture.h
+
+/home/lex/Documents/cs/raytracer/perlin.h
+vec3.h
+/home/lex/Documents/cs/raytracer/vec3.h
 
 /home/lex/Documents/cs/raytracer/ray.h
 vec3.h
@@ -47,6 +53,12 @@ vec3.h
 /home/lex/Documents/cs/raytracer/sphere.h
 hitable.h
 /home/lex/Documents/cs/raytracer/hitable.h
+
+/home/lex/Documents/cs/raytracer/texture.h
+vec3.h
+/home/lex/Documents/cs/raytracer/vec3.h
+perlin.h
+/home/lex/Documents/cs/raytracer/perlin.h
 
 /home/lex/Documents/cs/raytracer/vec3.h
 math.h

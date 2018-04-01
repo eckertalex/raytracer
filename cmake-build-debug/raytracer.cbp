@@ -99,10 +99,16 @@
 		<Unit filename="/home/lex/Documents/cs/raytracer/material.h">
 			<Option target="raytracer"/>
 		</Unit>
+		<Unit filename="/home/lex/Documents/cs/raytracer/perlin.h">
+			<Option target="raytracer"/>
+		</Unit>
 		<Unit filename="/home/lex/Documents/cs/raytracer/ray.h">
 			<Option target="raytracer"/>
 		</Unit>
 		<Unit filename="/home/lex/Documents/cs/raytracer/sphere.h">
+			<Option target="raytracer"/>
+		</Unit>
+		<Unit filename="/home/lex/Documents/cs/raytracer/texture.h">
 			<Option target="raytracer"/>
 		</Unit>
 		<Unit filename="/home/lex/Documents/cs/raytracer/vec3.h">

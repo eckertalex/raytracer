@@ -6,7 +6,9 @@ CMakeFiles/raytracer.dir/main.cpp.o: ../hitable.h
 CMakeFiles/raytracer.dir/main.cpp.o: ../hitable_list.h
 CMakeFiles/raytracer.dir/main.cpp.o: ../main.cpp
 CMakeFiles/raytracer.dir/main.cpp.o: ../material.h
+CMakeFiles/raytracer.dir/main.cpp.o: ../perlin.h
 CMakeFiles/raytracer.dir/main.cpp.o: ../ray.h
 CMakeFiles/raytracer.dir/main.cpp.o: ../sphere.h
+CMakeFiles/raytracer.dir/main.cpp.o: ../texture.h
 CMakeFiles/raytracer.dir/main.cpp.o: ../vec3.h
 
