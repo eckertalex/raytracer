@@ -3,23 +3,25 @@
 #include <values.h>
 
 #include "sphere.h"
+#include "rect.h"
 #include "hitable_list.h"
 #include "camera.h"
 #include "material.h"
+#include "box.h"
 
 vec3 color(const ray& r, hitable* world, int depth) {
     hit_record rec;
-    if(world->hit(r, 0.001, MAXFLOAT, rec)) {
+    if (world->hit(r, 0.001, MAXFLOAT, rec)) {
         ray scattered;
         vec3 attenuation;
-        if(depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered)) {
-            return attenuation*color(scattered, world, depth+1);
-        }
-        else {
-            return vec3(0, 0, 0);
-        }
+        //vec3 emitted = rec.mat_ptr->emitted(rec.u, rec.v, rec.p);
+        if (depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+            return /*emitted +*/ attenuation*color(scattered, world, depth+1);
+        else
+            return vec3(0, 0, 0);//emitted;
     }
     else {
+        //return vec3(0, 0, 0);
         vec3 unit_direction = unit_vector(r.direction());
         float t = 0.5*(unit_direction.y() + 1.0);
         return (1.0-t)*vec3(1.0, 1.0, 1.0) + t*vec3(0.5, 0.7, 1.0);
@@ -27,36 +29,43 @@ vec3 color(const ray& r, hitable* world, int depth) {
 }
 
 hitable *scene() {
-    hitable **list = new hitable*[4];
-    texture *marble = new noise_texture();
-    texture *checker = new checker_texture(
-            new constant_texture(vec3(0.35, 0.35, 0.35)),
-            new constant_texture(vec3(0.0, 0.52, 0.52))
-    );
-
-    list[0] =  new sphere(vec3(0,-1000,0), 1000, new lambertian(checker));
-    list[1] = new sphere(vec3(2, 1, -1), 1.0, new metal(vec3(0.7, 0.6, 0.5), 0.0));
-    list[2] = new sphere(vec3(-1, 1, 0), 1.0, new lambertian(marble));
-    list[3] = new sphere(vec3(3, 1, 2), 1.0, new dielectric(1.5));
-    //list[4] = new sphere(vec3(7, 0.8, 1.4), 0.2, new lambertian(new constant_texture(vec3(1.0, 0.44, 0.54))));
-
-    return new hitable_list(list,4);
+    hitable **list = new hitable*[5];
+    int i = 0;
+    texture *perl_tex = new noise_texture(0.1);
+    material *perl_mat = new lambertian(perl_tex);
+    material *red = new lambertian( new constant_texture(vec3(0.65, 0.05, 0.05)) );
+    material *white = new lambertian( new constant_texture(vec3(0.73, 0.73, 0.73)) );
+    material *met = new metal(vec3(0.7, 0.6, 0.5), 0.0);
+    material *glass = new dielectric(1.5);
+    //material *green = new lambertian( new constant_texture(vec3(0.12, 0.45, 0.15)) );
+    //material *light = new diffuse_light( new constant_texture(vec3(15, 15, 15)) );
+    //list[i++] = new xz_rect(213, 343, 227, 332, 554, light);
+    list[i++] = new xz_rect(0, 555, 0, 555, 0, white);
+    list[i++] = new translate( new rotate_y( new box(vec3(0, 0, 0), vec3(165, 165, 165), glass), -18), vec3(130, 0, 65));
+    list[i++] = new translate( new rotate_y( new box(vec3(0, 0, 0), vec3(165, 330, 165), red), 15), vec3(265, 0, 295));
+    list[i++] = new sphere(vec3(430, 65, 30), 60, perl_mat);
+    list[i++] = new sphere(vec3(85, 65, 270), 60, met);
+    return new hitable_list(list,i);
 }
 
 int main() {
     std::ofstream file;
     file.open("../test.ppm");
-    int nx = 1024;
-    int ny = 768;
+    int nx = 160;
+    int ny = 120;
     int ns = 1000;
     file << "P3\n" << nx << " " << ny << "\n255\n";
 
     hitable *world = scene();
-    vec3 lookfrom(13, 2, 3);
-    vec3 lookat(0, 0, 0);
+
+    vec3 lookfrom(278, 278, -800);
+    vec3 lookat(278,278,0);
     float dist_to_focus = 10.0;
     float aperture = 0.0;
-    camera cam(lookfrom, lookat, vec3(0, 1, 0), 20, float(nx)/float(ny), aperture, dist_to_focus, 0.0, 1.0);
+    float vfov = 40.0;
+
+    camera cam(lookfrom, lookat, vec3(0,1,0), vfov, float(nx)/float(ny),
+               aperture, dist_to_focus, 0.0, 1.0);
 
     for(int j = ny-1; j >= 0; j--) {
         for(int i = 0; i < nx; i++) {

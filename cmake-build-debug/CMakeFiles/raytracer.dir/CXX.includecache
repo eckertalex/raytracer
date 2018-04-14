@@ -6,13 +6,27 @@
 
 #IncludeRegexTransform: 
 
+/home/lex/Documents/cs/raytracer/aabb.h
+hitable.h
+/home/lex/Documents/cs/raytracer/hitable.h
+vec3.h
+/home/lex/Documents/cs/raytracer/vec3.h
+ray.h
+/home/lex/Documents/cs/raytracer/ray.h
+
+/home/lex/Documents/cs/raytracer/box.h
+hitable_list.h
+/home/lex/Documents/cs/raytracer/hitable_list.h
+rect.h
+/home/lex/Documents/cs/raytracer/rect.h
+
 /home/lex/Documents/cs/raytracer/camera.h
 ray.h
 /home/lex/Documents/cs/raytracer/ray.h
 
 /home/lex/Documents/cs/raytracer/hitable.h
-ray.h
-/home/lex/Documents/cs/raytracer/ray.h
+aabb.h
+/home/lex/Documents/cs/raytracer/aabb.h
 
 /home/lex/Documents/cs/raytracer/hitable_list.h
 hitable.h
@@ -27,12 +41,16 @@ values.h
 -
 sphere.h
 /home/lex/Documents/cs/raytracer/sphere.h
+rect.h
+/home/lex/Documents/cs/raytracer/rect.h
 hitable_list.h
 /home/lex/Documents/cs/raytracer/hitable_list.h
 camera.h
 /home/lex/Documents/cs/raytracer/camera.h
 material.h
 /home/lex/Documents/cs/raytracer/material.h
+box.h
+/home/lex/Documents/cs/raytracer/box.h
 
 /home/lex/Documents/cs/raytracer/material.h
 ray.h
@@ -50,13 +68,15 @@ vec3.h
 vec3.h
 /home/lex/Documents/cs/raytracer/vec3.h
 
+/home/lex/Documents/cs/raytracer/rect.h
+hitable.h
+/home/lex/Documents/cs/raytracer/hitable.h
+
 /home/lex/Documents/cs/raytracer/sphere.h
 hitable.h
 /home/lex/Documents/cs/raytracer/hitable.h
 
 /home/lex/Documents/cs/raytracer/texture.h
-vec3.h
-/home/lex/Documents/cs/raytracer/vec3.h
 perlin.h
 /home/lex/Documents/cs/raytracer/perlin.h
 

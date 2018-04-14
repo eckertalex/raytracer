@@ -84,6 +84,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/lex/Documents/cs/raytracer/aabb.h">
+			<Option target="raytracer"/>
+		</Unit>
+		<Unit filename="/home/lex/Documents/cs/raytracer/box.h">
+			<Option target="raytracer"/>
+		</Unit>
+		<Unit filename="/home/lex/Documents/cs/raytracer/bvh.h">
+			<Option target="raytracer"/>
+		</Unit>
 		<Unit filename="/home/lex/Documents/cs/raytracer/camera.h">
 			<Option target="raytracer"/>
 		</Unit>
@@ -103,6 +112,9 @@
 			<Option target="raytracer"/>
 		</Unit>
 		<Unit filename="/home/lex/Documents/cs/raytracer/ray.h">
+			<Option target="raytracer"/>
+		</Unit>
+		<Unit filename="/home/lex/Documents/cs/raytracer/rect.h">
 			<Option target="raytracer"/>
 		</Unit>
 		<Unit filename="/home/lex/Documents/cs/raytracer/sphere.h">
