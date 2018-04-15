@@ -29,30 +29,27 @@ vec3 color(const ray& r, hitable* world, int depth) {
 }
 
 hitable *scene() {
-    hitable **list = new hitable*[5];
+    hitable **list = new hitable*[9];
     int i = 0;
-    texture *perl_tex = new noise_texture(0.1);
+    texture  *perl_tex = new noise_texture(0.1);
     material *perl_mat = new lambertian(perl_tex);
     material *red = new lambertian( new constant_texture(vec3(0.65, 0.05, 0.05)) );
-    material *white = new lambertian( new constant_texture(vec3(0.73, 0.73, 0.73)) );
     material *met = new metal(vec3(0.7, 0.6, 0.5), 0.0);
     material *glass = new dielectric(1.5);
-    //material *green = new lambertian( new constant_texture(vec3(0.12, 0.45, 0.15)) );
-    //material *light = new diffuse_light( new constant_texture(vec3(15, 15, 15)) );
-    //list[i++] = new xz_rect(213, 343, 227, 332, 554, light);
-    list[i++] = new xz_rect(0, 555, 0, 555, 0, white);
-    list[i++] = new translate( new rotate_y( new box(vec3(0, 0, 0), vec3(165, 165, 165), glass), -18), vec3(130, 0, 65));
-    list[i++] = new translate( new rotate_y( new box(vec3(0, 0, 0), vec3(165, 330, 165), red), 15), vec3(265, 0, 295));
-    list[i++] = new sphere(vec3(430, 65, 30), 60, perl_mat);
-    list[i++] = new sphere(vec3(85, 65, 270), 60, met);
+    material *green = new lambertian( new constant_texture(vec3(0.12, 0.45, 0.15)) );
+    list[i++] = new xz_rect(0, 555, 0, 555, 0, green);
+    list[i++] = new translate(new rotate_y(new box(vec3(0, 0, 0), vec3(165, 165, 165), glass), -18), vec3(130,0,65));
+    list[i++] = new translate(new rotate_y(new box(vec3(0, 0, 0), vec3(165, 330, 165), red), 15), vec3(265,0,295));
+    list[i++] = new sphere(vec3(480, 120, 90), 110, perl_mat);
+    list[i++] = new sphere(vec3(85, 65, 330), 60, met);
     return new hitable_list(list,i);
 }
 
 int main() {
     std::ofstream file;
-    file.open("../test.ppm");
-    int nx = 160;
-    int ny = 120;
+    file.open("../aeckert-hw7.ppm");
+    int nx = 960;
+    int ny = 720;
     int ns = 1000;
     file << "P3\n" << nx << " " << ny << "\n255\n";
 

@@ -43,9 +43,6 @@ class yz_rect: public hitable  {
         float y0, y1, z0, z1, k;
 };
 
-
-
-
 bool xy_rect::hit(const ray& r, float t0, float t1, hit_record& rec) const {
     float t = (k-r.origin().z()) / r.direction().z();
     if (t < t0 || t > t1)
