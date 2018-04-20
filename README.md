@@ -2,5 +2,5 @@
 Basic Ray Tracer written in C++
 
 ## Impressions
-![Screenshot](images/aeckert-hw5.png)
-![Screenshot](images/rtr-homework7-screenshot.png)
+![Screenshot](aeckert-hw5.png)
+![Screenshot](rtr-homework7-screenshot.png)
